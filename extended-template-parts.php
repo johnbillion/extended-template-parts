@@ -64,35 +64,19 @@ class Extended_Template_Part {
 
 	protected function locate_template() {
 
-		if ( isset( $this->template ) )
+		if ( isset( $this->template ) ) {
 			return $this->template;
-
-		$templates = $context = array();
-
-		if ( !empty( $this->name ) )
-			$context[] = "{$this->slug}-{$this->name}.php";
-
-		$context[] = "{$this->slug}.php";
-
-		foreach ( $context as $file ) {
-			foreach ( template_bases() as $base )
-				$templates[] = ltrim( "{$base}/{$this->args['dir']}/{$file}", '/' );
 		}
 
-		$located = false;
+		$templates = array();
 
-		foreach ( $templates as $template_name ) {
-
-			if ( file_exists( get_stylesheet_directory() . '/' . $template_name ) ) {
-				$located = get_stylesheet_directory() . '/' . $template_name;
-				break;
-			} else if ( file_exists( get_template_directory() . '/' . $template_name ) ) {
-				$located = get_template_directory() . '/' . $template_name;
-				break;
-			}
+		if ( ! empty( $this->name ) ) {
+			$templates[] = "{$this->args['dir']}/{$this->slug}-{$this->name}.php";
 		}
 
-		return $this->template = $located;
+		$templates[] = "{$this->args['dir']}/{$this->slug}.php";
+
+		return $this->template = locate_template( $templates );
 
 	}
 
