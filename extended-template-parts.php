@@ -26,7 +26,7 @@ class Extended_Template_Part {
 
 		$args = wp_parse_args( $args, array(
 			'cache' => false,
-			'dir'   => 'parts',
+			'dir'   => 'template-parts',
 		) );
 
 		$this->slug = $slug;
