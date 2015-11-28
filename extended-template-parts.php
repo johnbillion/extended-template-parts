@@ -14,7 +14,7 @@ GNU General Public License for more details.
 
 */
 
-class Amsterdam_Section_Template {
+class Extended_Template_Part {
 
 	public $vars = array();
 
