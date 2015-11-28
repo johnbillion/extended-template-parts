@@ -18,23 +18,11 @@ class Extended_Template_Part {
 
 	public $vars = array();
 
-	public function __construct( $slug, $name = null, $args = null ) {
-
-		if ( is_numeric( $args ) ) {
-			$args = array(
-				'cache_timeout' => $args
-			);
-		} else {
-			$args = (array) $args;
-		}
-
-		if ( isset( $args['cache_timeout'] ) )
-			$args['cache'] = true;
+	public function __construct( $slug, $name = '', array $args = array() ) {
 
 		$args = wp_parse_args( $args, array(
-			'cache'         => false,
-			'cache_timeout' => 0,
-			'dir'           => 'sections',
+			'cache' => false,
+			'dir'   => 'parts',
 		) );
 
 		$this->slug = $slug;
@@ -46,31 +34,23 @@ class Extended_Template_Part {
 
 	}
 
-	public function output_template() {
+	public function get_output() {
 
-		if ( $this->args['cache'] )
-			echo $this->get_template();
-		else
-			$this->load_template( $this->locate_template() );
-
-		return $this->locate_template();
-
-	}
-
-	public function get_template() {
-
-		if ( !$args['cache'] or !$template = $this->get_cache() ) {
+		if ( false === $this->args['cache'] || ! $output = $this->get_cache() ) {
 
 			ob_start();
-			$this->load_template( $this->locate_template() );
-			$template = ob_get_clean();
+			if ( $this->has_template() ) {
+				$this->load_template( $this->locate_template() );
+			}
+			$output = ob_get_clean();
 
-			if ( $args['cache'] )
-				$this->set_cache( $template );
+			if ( false !== $this->args['cache'] ) {
+				$this->set_cache( $output );
+			}
 
 		}
 
-		return $template;
+		return $output;
 
 	}
 
