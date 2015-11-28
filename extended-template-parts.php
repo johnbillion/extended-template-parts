@@ -16,7 +16,11 @@ GNU General Public License for more details.
 
 class Extended_Template_Part {
 
+	public $slug = '';
+	public $name = '';
+	public $args = array();
 	public $vars = array();
+	protected $template = null;
 
 	public function __construct( $slug, $name = '', array $args = array() ) {
 
@@ -29,8 +33,9 @@ class Extended_Template_Part {
 		$this->name = $name;
 		$this->args = $args;
 
-		if ( isset( $args['vars'] ) and is_array( $args['vars'] ) )
+		if ( isset( $args['vars'] ) && is_array( $args['vars'] ) ) {
 			$this->set_vars( $args['vars'] );
+		}
 
 	}
 
@@ -84,16 +89,16 @@ class Extended_Template_Part {
 		require $template_file;
 	}
 
-	function get_cache() {
+	protected function get_cache() {
 		return get_transient( $this->cache_key() );
 	}
 
-	function set_cache( $section ) {
-		return set_transient( $this->cache_key(), $section, $this->args['cache_timeout'] );
+	protected function set_cache( $output ) {
+		return set_transient( $this->cache_key(), $output, $this->args['cache'] );
 	}
 
 	protected function cache_key() {
-		return 'section_' . md5( $this->locate_template() . '/' . serialize( $this->args ) );
+		return 'part_' . md5( $this->locate_template() . '/' . serialize( $this->args ) );
 	}
 
 }
