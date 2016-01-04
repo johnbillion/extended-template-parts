@@ -14,6 +14,11 @@ GNU General Public License for more details.
 
 */
 
+function get_extended_template_part( $slug, $name = '', array $vars = array(), array $args = array() ) {
+	$template = new Extended_Template_Part( $slug, $name, $vars, $args );
+	echo $template->get_output();
+}
+
 class Extended_Template_Part {
 
 	public $slug = '';
