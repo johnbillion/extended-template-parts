@@ -22,7 +22,7 @@ class Extended_Template_Part {
 	public $vars = array();
 	protected $template = null;
 
-	public function __construct( $slug, $name = '', array $args = array() ) {
+	public function __construct( $slug, $name = '', array $vars = array(), array $args = array() ) {
 
 		$args = wp_parse_args( $args, array(
 			'cache' => false,
@@ -33,9 +33,7 @@ class Extended_Template_Part {
 		$this->name = $name;
 		$this->args = $args;
 
-		if ( isset( $args['vars'] ) && is_array( $args['vars'] ) ) {
-			$this->set_vars( $args['vars'] );
-		}
+		$this->set_vars( $vars );
 
 	}
 
