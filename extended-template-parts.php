@@ -14,7 +14,7 @@ GNU General Public License for more details.
 
 */
 
-function get_extended_template_part( $slug, $name = '', array $vars = array(), array $args = array() ) {
+function get_extended_template_part( $slug, $name = '', array $vars = [], array $args = [] ) {
 	$template = new Extended_Template_Part( $slug, $name, $vars, $args );
 	echo $template->get_output();
 }
@@ -23,11 +23,11 @@ class Extended_Template_Part {
 
 	public $slug = '';
 	public $name = '';
-	public $args = array();
-	public $vars = array();
+	public $args = [];
+	public $vars = [];
 	protected $template = null;
 
-	public function __construct( $slug, $name = '', array $vars = array(), array $args = array() ) {
+	public function __construct( $slug, $name = '', array $vars = [], array $args = [] ) {
 
 		$args = wp_parse_args( $args, array(
 			'cache' => false,
@@ -76,7 +76,7 @@ class Extended_Template_Part {
 			return $this->template;
 		}
 
-		$templates = array();
+		$templates = [];
 
 		if ( ! empty( $this->name ) ) {
 			$templates[] = "{$this->args['dir']}/{$this->slug}-{$this->name}.php";
