@@ -1,0 +1,30 @@
+{
+	"name"       : "johnbillion/extended-template-parts",
+	"description": "A library which provides extended functionality to WordPress template parts, including theme templating and caching.",
+	"homepage"   : "https://github.com/johnbillion/extended-template-parts/",
+	"license"    : "GPL-2.0+",
+	"authors"    : [
+		{
+			"name"    : "John Blackbourn",
+			"homepage": "https://johnblackbourn.com/"
+		}
+	],
+	"repositories":[
+		{
+			"type": "composer",
+			"url" : "http://wpackagist.org"
+		}
+	],
+	"require": {
+		"php": ">=5.4",
+		"composer/installers": "~1.0"
+	},
+	"require-dev" : {
+		"phpunit/phpunit": ">=3.7"
+	},
+	"suggest": {
+		"johnbillion/extended-cpts": "Extended CPTs",
+		"johnbillion/extended-taxos": "Extended Taxonomies",
+		"johnbillion/extended-widgets": "Extended Widgets",
+	}
+}
