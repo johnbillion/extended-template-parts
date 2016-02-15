@@ -3,7 +3,7 @@
 
 # Extended Template Parts
 
-Extended CPTs is a library which provides extended functionality to WordPress template parts, including theme templating and caching.
+Extended CPTs is a library which provides extended functionality to WordPress template parts, including template variables and caching.
 
 ## Features ##
 

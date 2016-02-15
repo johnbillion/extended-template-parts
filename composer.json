@@ -1,6 +1,6 @@
 {
 	"name"       : "johnbillion/extended-template-parts",
-	"description": "A library which provides extended functionality to WordPress template parts, including theme templating and caching.",
+	"description": "A library which provides extended functionality to WordPress template parts, including template variables and caching.",
 	"homepage"   : "https://github.com/johnbillion/extended-template-parts/",
 	"license"    : "GPL-2.0+",
 	"authors"    : [
