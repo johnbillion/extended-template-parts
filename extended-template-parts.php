@@ -138,7 +138,12 @@ class Extended_Template_Part {
 
 		$templates[] = "{$this->args['dir']}/{$this->slug}.php";
 
-		return $this->template = locate_template( $templates );
+		$this->template = locate_template( $templates );
+
+		if ( 0 !== validate_file( $template ) ) {
+			$this->template = '';
+		}
+		return $this->template;
 
 	}
 
@@ -149,6 +154,9 @@ class Extended_Template_Part {
 	 */
 	protected function load_template( $template_file ) {
 		global $posts, $post, $wp_did_header, $wp_query, $wp_rewrite, $wpdb, $wp_version, $wp, $id, $comment, $user_ID;
+		if ( 0 !== validate_file( $template_file ) ) {
+			return;
+		}
 		require $template_file;
 	}
 
