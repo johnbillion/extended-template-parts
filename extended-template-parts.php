@@ -140,7 +140,7 @@ class Extended_Template_Part {
 
 		$this->template = locate_template( $templates );
 
-		if ( 0 !== validate_file( $template ) ) {
+		if ( 0 !== validate_file( $this->template ) ) {
 			$this->template = '';
 		}
 		return $this->template;
