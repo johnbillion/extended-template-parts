@@ -3,6 +3,7 @@
 	"description": "A library which provides extended functionality to WordPress template parts, including template variables and caching.",
 	"homepage"   : "https://github.com/johnbillion/extended-template-parts/",
 	"license"    : "GPL-2.0+",
+	"type"       : "wordpress-plugin",
 	"authors"    : [
 		{
 			"name"    : "John Blackbourn",
