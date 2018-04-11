@@ -40,6 +40,9 @@
  */
 function get_extended_template_part( $slug, $name = '', array $vars = [], array $args = [] ) {
 	$template = new Extended_Template_Part( $slug, $name, $vars, $args );
+	$dir = $template->args['dir'];
+	/* This action is documented in WordPress core: wp-includes/general-template.php */
+	do_action( "get_template_part_{$dir}/{$slug}", "{$dir}/{$slug}", $name );
 	echo $template->get_output(); // WPCS: XSS ok.
 }
 
