@@ -1,5 +1,7 @@
+[![Build Status](https://travis-ci.org/johnbillion/extended-template-parts.svg?branch=master)](https://travis-ci.org/johnbillion/extended-template-parts)
 [![Stable Release](https://img.shields.io/packagist/v/johnbillion/extended-template-parts.svg)](https://packagist.org/packages/johnbillion/extended-template-parts)
 [![License](https://img.shields.io/badge/license-GPL_v2%2B-blue.svg)](https://github.com/johnbillion/extended-template-parts/blob/master/LICENSE)
+![PHP 7](https://img.shields.io/badge/php-7-blue.svg)
 
 # Extended Template Parts
 
