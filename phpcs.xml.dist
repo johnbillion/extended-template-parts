@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
-<ruleset name="Extended template parts">
+<ruleset name="Extended Template Parts">
 	<description>A custom set of rules to check for the Extended template parts library for WordPress project</description>
 
-	<config name="installed_paths" value="vendor/wp-coding-standards/wpcs,vendor/automattic/phpcs-neutron-standard,vendor/automattic/vipwpcs" />
-	<config name="severity" value="3"/>
+	<config name="installed_paths" value="../../wp-coding-standards/wpcs,../../wimg/php-compatibility,../../automattic/phpcs-neutron-standard" />
 	<config name="testVersion" value="7.0-"/>
 
 	<!-- EXCLUDED FILES AND FOLDERS -->
