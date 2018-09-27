@@ -12,6 +12,9 @@
 
 	<!-- DEFINE STANDARDS -->
 
+	<!-- Include the PHP version compatibility standard. -->
+	<rule ref="PHPCompatibility"/>
+
 	<!-- Include the Neutron standard. -->
 	<rule ref="NeutronStandard">
 		<exclude name="NeutronStandard.Globals.DisallowGlobalFunctions.GlobalFunctions"/>

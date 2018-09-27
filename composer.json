@@ -14,8 +14,9 @@
 		"composer/installers": "~1.0"
 	},
 	"require-dev" : {
-		"phpunit/phpunit": "5.7",
 		"automattic/phpcs-neutron-standard": "^1.5",
+		"phpunit/phpunit": "5.7",
+		"wimg/php-compatibility": "^8",
 		"wp-coding-standards/wpcs": "1.0"
 	},
 	"autoload": {
