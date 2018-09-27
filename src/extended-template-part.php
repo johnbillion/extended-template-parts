@@ -1,14 +1,5 @@
 <?php
-/**
- * Extended Template Part file
- *
- * @package   ExtendedTemplateParts
- * @version   1.1.1
- * @author    John Blackbourn <https://johnblackbourn.com>
- * @link      https://github.com/johnbillion/extended-template-parts
- * @copyright 2012-2018 John Blackbourn
- * @license   GPL v2 or later
- */
+declare(strict_types=1);
 
 /**
  * Class Extended_Template_Part
@@ -56,7 +47,7 @@ class Extended_Template_Part {
 	 * @param array  $vars Variables for use within the template part.
 	 * @param array  $args Arguments for the template part.
 	 */
-	public function __construct( $slug, $name = '', array $vars = [], array $args = [] ) {
+	public function __construct( string $slug, string $name = '', array $vars = [], array $args = [] ) {
 
 		$args = wp_parse_args(
 			$args,

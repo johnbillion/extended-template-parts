@@ -23,5 +23,5 @@
 /**
  * Require class
  */
-require_once __DIR__ . '/class-extended-template-part.php';
 require_once __DIR__ . '/functions.php';
+require_once __DIR__ . '/src/extended-template-part.php';
