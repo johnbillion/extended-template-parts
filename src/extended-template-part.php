@@ -73,19 +73,20 @@ class Extended_Template_Part {
 	 * @return string The template part output.
 	 */
 	public function get_output() {
-		$output = $this->get_cache();
+		$output = ( false !== $this->args['cache'] ) ? $this->get_cache() : '';
 
-		if ( false === $this->args['cache'] || ! $output ) {
+		if ( $output ) {
+			return $output;
+		}
 
-			ob_start();
-			if ( $this->has_template() ) {
-				$this->load_template( $this->locate_template() );
-			}
-			$output = ob_get_clean();
+		ob_start();
+		if ( $this->has_template() ) {
+			$this->load_template( $this->locate_template() );
+		}
+		$output = ob_get_clean();
 
-			if ( false !== $this->args['cache'] ) {
-				$this->set_cache( $output );
-			}
+		if ( false !== $this->args['cache'] ) {
+			$this->set_cache( $output );
 		}
 
 		return $output;
