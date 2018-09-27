@@ -27,7 +27,6 @@
 	},
 	"suggest": {
 		"johnbillion/extended-cpts": "Extended CPTs",
-		"johnbillion/extended-taxos": "Extended Taxonomies",
 		"johnbillion/extended-widgets": "Extended Widgets"
 	}
 }
