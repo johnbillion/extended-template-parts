@@ -12,6 +12,11 @@
 
 	<!-- DEFINE STANDARDS -->
 
+	<!-- Include the Neutron standard. -->
+	<rule ref="NeutronStandard">
+		<exclude name="NeutronStandard.Globals.DisallowGlobalFunctions.GlobalFunctions"/>
+	</rule>
+
 	<!-- Include the WordPress-Extra standard. -->
 	<rule ref="WordPress-Extra">
 		<!--
@@ -23,7 +28,8 @@
 		-->
 
 		<exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning"/>
-		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned"/>
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+		<exclude name="NeutronStandard.AssignAlign.DisallowAssignAlign.Aligned"/>
 		<exclude name="PSR2.Namespaces.NamespaceDeclaration"/>
 	</rule>
 
