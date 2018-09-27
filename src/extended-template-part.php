@@ -55,13 +55,10 @@ class Extended_Template_Part {
 	 */
 	public function __construct( string $slug, string $name = '', array $vars = [], array $args = [] ) {
 
-		$args = wp_parse_args(
-			$args,
-			array(
-				'cache' => false,
-				'dir'   => 'template-parts',
-			) 
-		);
+		$args = wp_parse_args( $args, [
+			'cache' => false,
+			'dir'   => 'template-parts',
+		] );
 
 		$this->slug = $slug;
 		$this->name = $name;
