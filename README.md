@@ -12,18 +12,27 @@ Extended CPTs is a library which provides extended functionality to WordPress te
 
 ## Minimum Requirements ##
 
-**PHP:** 5.4  
+**PHP:** 7.0  
 **WordPress:** 4.4  
 
-## Usage ##
+## Installation ##
 
-Extended Template Parts is a developer library, not a plugin, which means you need to include it somewhere in your own plugin or theme:
+Extended Template Parts is a developer library, not a plugin, which means you need to include it somewhere in your own project.
+You can use Composer:
+
+```bash
+composer require johnbillion/extended-template-parts
+```
+
+Or you can download the library and include it manually:
 
 ```php
 require_once 'extended-template-parts/extended-template-parts.php';
 ```
 
-The `get_extended_template_part()` function behaves exactly like [WordPress' `get_template_part()` function](https://developer.wordpress.org/reference/functions/get_template_part/), except it loads the template part from the `template-parts` subdirectory of the theme for better file organisation. Thus, the usual parent/child theme hierarchy is of course respected. In addition, it accepts two optional parameters for passing variables into the template part, and for passing arguments to the function.
+## Usage ##
+
+The `get_extended_template_part()` function behaves exactly like [WordPress' `get_template_part()` function](https://developer.wordpress.org/reference/functions/get_template_part/), except it loads the template part from the `template-parts` subdirectory of the theme for better file organisation. The usual parent/child theme hierarchy is of course respected. In addition, it accepts two optional parameters for passing variables into the template part, and for passing arguments to the function.
 
 ```php
 get_extended_template_part( 'foo', 'bar' );
@@ -32,12 +41,12 @@ get_extended_template_part( 'foo', 'bar' );
 The above code behaves exactly the same as `get_template_part()`, except it loads the template part from the `template-parts` subdirectory. To pass in variables to the template part, to change the subdirectory that's used, and to automatically cache the output for an hour in a transient, try the following code:
 
 ```php
-get_extended_template_part( 'foo', 'bar', array(
+get_extended_template_part( 'foo', 'bar', [
 	'my_variable' => 'Hello, world!',
-), array(
+], [
 	'dir'   => 'my_directory',
 	'cache' => 3600,
-) );
+] );
 ```
 
 ## License: GPLv2 or later ##
