@@ -1,4 +1,10 @@
 <?php
+/**
+ * Extended_Template_Part class.
+ *
+ * @package ExtendedTemplateParts
+ */
+
 declare( strict_types=1 );
 
 /**
@@ -65,7 +71,7 @@ class Extended_Template_Part {
 	}
 
 	/**
-	 * Get the output of the template part.
+	 * Gets the output of the template part.
 	 *
 	 * @return string The template part output.
 	 */

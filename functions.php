@@ -1,4 +1,9 @@
 <?php
+/**
+ * Template functions.
+ *
+ * @package ExtendedTemplateParts
+ */
 
 declare( strict_types=1 );
 
