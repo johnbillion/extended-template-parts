@@ -82,7 +82,7 @@ class Extended_Template_Part {
 
 			if ( false !== $this->args['cache'] ) {
 				$this->set_cache( $output );
-			}       
+			}
 		}
 
 		return $output;
@@ -126,13 +126,13 @@ class Extended_Template_Part {
 
 		$templates[] = "{$this->args['dir']}/{$this->slug}.php";
 
-		$this->template = $this->locate_template( $templates );
+		$this->template = locate_template( $templates );
 
-		if ( 0 !== $this->validate_file( $this->template ) ) {
+		if ( 0 !== validate_file( $this->template ) ) {
 			$this->template = '';
 		}
-
 		return $this->template;
+
 	}
 
 	/**
@@ -142,7 +142,7 @@ class Extended_Template_Part {
 	 */
 	protected function load_template( $template_file ) {
 		global $posts, $post, $wp_did_header, $wp_query, $wp_rewrite, $wpdb, $wp_version, $wp, $id, $comment, $user_ID;
-		if ( 0 !== $this->validate_file( $template_file ) ) {
+		if ( 0 !== validate_file( $template_file ) ) {
 			return;
 		}
 		require $template_file;
