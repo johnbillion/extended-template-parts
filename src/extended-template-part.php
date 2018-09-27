@@ -72,7 +72,7 @@ class Extended_Template_Part {
 	 *
 	 * @return string The template part output.
 	 */
-	public function get_output() {
+	public function get_output() : string {
 		$output = ( false !== $this->args['cache'] ) ? $this->get_cache() : '';
 
 		if ( $output ) {
@@ -96,9 +96,9 @@ class Extended_Template_Part {
 	/**
 	 * Is the requested template part available?
 	 *
-	 * @return boolean Whether the template part is available.
+	 * @return bool Whether the template part is available.
 	 */
-	public function has_template() {
+	public function has_template() : bool {
 		return ! ! $this->locate_template();
 	}
 
@@ -116,7 +116,7 @@ class Extended_Template_Part {
 	 *
 	 * @return string The template part file name. Empty string if none is found.
 	 */
-	protected function locate_template() {
+	protected function locate_template() : string {
 
 		if ( isset( $this->template ) ) {
 			return $this->template;
@@ -142,9 +142,9 @@ class Extended_Template_Part {
 	/**
 	 * Load the template part.
 	 *
-	 * @param  string $template_file The template part file path.
+	 * @param string $template_file The template part file path.
 	 */
-	protected function load_template( $template_file ) {
+	protected function load_template( string $template_file ) {
 		global $posts, $post, $wp_did_header, $wp_query, $wp_rewrite, $wpdb, $wp_version, $wp, $id, $comment, $user_ID;
 		if ( 0 !== validate_file( $template_file ) ) {
 			return;
@@ -165,8 +165,9 @@ class Extended_Template_Part {
 	 * Cache the template part output.
 	 *
 	 * @param string $output The template part output.
+	 * @return bool Whether the transient data was successfully stored.
 	 */
-	protected function set_cache( $output ) {
+	protected function set_cache( string $output ) : bool {
 		return set_transient( $this->cache_key(), $output, $this->args['cache'] );
 	}
 
@@ -175,7 +176,7 @@ class Extended_Template_Part {
 	 *
 	 * @return string The cache key.
 	 */
-	protected function cache_key() {
+	protected function cache_key() : string {
 		return 'part_' . md5( $this->locate_template() . '/' . wp_json_encode( $this->args ) );
 	}
 
