@@ -29,5 +29,5 @@ function get_extended_template_part( string $slug, string $name = '', array $var
 	/* This action is documented in WordPress core: wp-includes/general-template.php */
 	do_action( "get_template_part_{$dir_slug}", "{$dir_slug}", $name );
 
-	echo $template->get_output();
+	echo $template->get_output(); // WPCS: XSS ok.
 }

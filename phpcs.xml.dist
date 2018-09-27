@@ -33,12 +33,6 @@
 		<exclude name="PSR2.Namespaces.NamespaceDeclaration"/>
 	</rule>
 
-	<rule ref="WordPress.Security.EscapeOutput">
-		<properties>
-			<property type="array" name="customAutoEscapedFunctions" value="get_extended_template_part"/>
-		</properties>
-	</rule>
-
 	<!-- Let's also check that everything is properly documented. -->
 	<rule ref="WordPress-Docs" />
 </ruleset>
