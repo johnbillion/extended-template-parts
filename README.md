@@ -34,7 +34,7 @@ require_once 'extended-template-parts/extended-template-parts.php';
 
 ## Usage ##
 
-The `get_extended_template_part()` function behaves exactly like [WordPress' `get_template_part()` function](https://developer.wordpress.org/reference/functions/get_template_part/), except it loads the template part from the `template-parts` subdirectory of the theme for better file organisation. The usual parent/child theme hierarchy is of course respected. In addition, it accepts two optional parameters for passing variables into the template part, and for passing arguments to the function.
+The `get_extended_template_part()` function behaves exactly like [WordPress' `get_template_part()` function](https://developer.wordpress.org/reference/functions/get_template_part/), except it loads the template part from the `template-parts` subdirectory of the theme for better file organisation. The usual parent/child theme hierarchy is respected. In addition, it accepts two optional parameters for passing variables into the template part, and for passing arguments to the function.
 
 ```php
 get_extended_template_part( 'foo', 'bar' );
@@ -49,6 +49,12 @@ get_extended_template_part( 'foo', 'bar', [
 	'dir'   => 'my_directory',
 	'cache' => 3600,
 ] );
+```
+
+In your `my_directory/foo-bar.php` template part file, you can access the variables that you passed in by using `$this->vars`:
+
+```php
+echo esc_html( $this->vars['my_variable'] );
 ```
 
 ## License: GPLv2 or later ##
