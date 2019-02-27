@@ -15,16 +15,15 @@ declare( strict_types=1 );
  * `$this->vars` property from within the template part.
  *
  * @param string $slug The slug name for the generic template.
- * @param string $name The name of the specialised template.
- * @param array  $vars Variables for use within the template part.
+ * @param string $name Optional. The name of the specialised template.
+ * @param array  $vars Optional. Variables for use within the template part.
  * @param array  $args {
- *     Arguments for the template part.
+ *     Optional. Arguments for the template part.
  *
  *     @type int|false $cache The number of seconds this template part should be cached for, or boolean false
  *                            for no caching. Default false.
  *     @type string    $dir   The theme subdirectory to look in for template parts. Default 'template-parts'.
  * }
- * Require class
  */
 function get_extended_template_part( string $slug, string $name = '', array $vars = [], array $args = [] ) {
 	$template = new Extended_Template_Part( $slug, $name, $vars, $args );

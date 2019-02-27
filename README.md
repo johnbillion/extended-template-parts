@@ -40,7 +40,7 @@ The `get_extended_template_part()` function behaves exactly like [WordPress' `ge
 get_extended_template_part( 'foo', 'bar' );
 ```
 
-The above code behaves exactly the same as `get_template_part()`, except it loads the template part from the `template-parts` subdirectory. To pass in variables to the template part, use the `$vars` parameter:
+Use the `$vars` parameter to pass in an associative array of variables to the template part:
 
 ```php
 get_extended_template_part( 'foo', 'bar', [
