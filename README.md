@@ -32,29 +32,41 @@ Or you can download the library and include it manually:
 require_once 'extended-template-parts/extended-template-parts.php';
 ```
 
-## Usage ##
+## Basic Usage ##
 
-The `get_extended_template_part()` function behaves exactly like [WordPress' `get_template_part()` function](https://developer.wordpress.org/reference/functions/get_template_part/), except it loads the template part from the `template-parts` subdirectory of the theme for better file organisation. The usual parent/child theme hierarchy is respected. In addition, it accepts two optional parameters for passing variables into the template part, and for passing arguments to the function.
+The `get_extended_template_part()` function behaves exactly like [WordPress' `get_template_part()` function](https://developer.wordpress.org/reference/functions/get_template_part/), except it loads the template part from the `template-parts` subdirectory of the theme for better file organisation. The usual parent/child theme hierarchy is respected.
 
 ```php
 get_extended_template_part( 'foo', 'bar' );
 ```
 
-The above code behaves exactly the same as `get_template_part()`, except it loads the template part from the `template-parts` subdirectory. To pass in variables to the template part, to change the subdirectory that's used, and to automatically cache the output for an hour in a transient, try the following code:
+The above code behaves exactly the same as `get_template_part()`, except it loads the template part from the `template-parts` subdirectory. To pass in variables to the template part, use the `$vars` parameter:
+
+```php
+get_extended_template_part( 'foo', 'bar', [
+	'my_variable' => 'Hello, world!',
+] );
+```
+
+In your `template-parts/foo-bar.php` template part file, you can access the variables that you passed in by using `$this->vars`:
+
+```php
+echo esc_html( $this->vars['my_variable'] );
+```
+
+## Advanced Usage ##
+
+The `get_extended_template_part()` function also accepts a second optional parameter that controls the directory name and caching.
+
+The following code will load `foo-bar.php` from the `my-directory` subdirectory and automatically cache its output in a transient for one hour:
 
 ```php
 get_extended_template_part( 'foo', 'bar', [
 	'my_variable' => 'Hello, world!',
 ], [
-	'dir'   => 'my_directory',
+	'dir'   => 'my-directory',
 	'cache' => 3600,
 ] );
-```
-
-In your `my_directory/foo-bar.php` template part file, you can access the variables that you passed in by using `$this->vars`:
-
-```php
-echo esc_html( $this->vars['my_variable'] );
 ```
 
 ## License: GPLv2 or later ##
