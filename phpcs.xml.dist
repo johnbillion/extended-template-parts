@@ -1,16 +1,10 @@
 <?xml version="1.0"?>
 <ruleset name="Extended Template Parts">
-	<description>A custom set of rules to check for the Extended Template Parts library for WordPress project</description>
-
-	<config name="installed_paths" value="../../wp-coding-standards/wpcs,../../wimg/php-compatibility,../../automattic/phpcs-neutron-standard" />
+	<!-- Minimum supported PHP version. -->
 	<config name="testVersion" value="7.0-"/>
-
-	<!-- EXCLUDED FILES AND FOLDERS -->
 
 	<!-- Exclude the Composer Vendor directory. -->
 	<exclude-pattern>*/vendor/*</exclude-pattern>
-
-	<!-- DEFINE STANDARDS -->
 
 	<!-- Include the PHP version compatibility standard. -->
 	<rule ref="PHPCompatibility"/>
@@ -22,18 +16,9 @@
 
 	<!-- Include the WordPress-Extra standard. -->
 	<rule ref="WordPress-Extra">
-		<!--
-		Remove the rules that don't suit this project or conflict with neutron standard.
-		We can do this by running `phpcs` with the '-s' flag, which allows us to
-		see the names of the sniffs reporting errors.
-		Once we know the sniff names, we can opt to exclude sniffs which don't
-		suit our project.
-		-->
-
-		<exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning"/>
+		<exclude name="PEAR.Functions.FunctionCallSignature"/>
 		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
 		<exclude name="NeutronStandard.AssignAlign.DisallowAssignAlign.Aligned"/>
-		<exclude name="PSR2.Namespaces.NamespaceDeclaration"/>
 	</rule>
 
 	<!-- Let's also check that everything is properly documented. -->

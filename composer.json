@@ -15,9 +15,9 @@
 	},
 	"require-dev" : {
 		"automattic/phpcs-neutron-standard": "^1.5",
-		"phpunit/phpunit": "5.7",
-		"wimg/php-compatibility": "^8",
-		"wp-coding-standards/wpcs": "1.0"
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.5",
+		"phpcompatibility/php-compatibility": "^9",
+		"wp-coding-standards/wpcs": "^2"
 	},
 	"autoload": {
 		"files": [
