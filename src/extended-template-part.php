@@ -180,4 +180,26 @@ class Extended_Template_Part {
 		return 'part_' . md5( $this->locate_template() . '/' . wp_json_encode( $this->args ) );
 	}
 
+	/**
+	 * Retrieve the value of a template variable.
+	 *
+	 * @param string $name The variable name.
+	 *
+	 * @return mixed The value of the template variable.
+	 */
+	public function __get( string $name ) {
+		return $this->vars[ $name ];
+	}
+
+	/**
+	 * Check whether a template variable is set or not.
+	 *
+	 * @param string $name The variable name.
+	 *
+	 * @return bool Whether the variable is set or not.
+	 */
+	public function __isset( string $name ) : bool {
+		return isset( $this->vars[ $name ] );
+	}
+
 }
