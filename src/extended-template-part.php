@@ -177,7 +177,7 @@ class Extended_Template_Part {
 	 * @return string The cache key.
 	 */
 	protected function cache_key() : string {
-		return 'part_' . md5( $this->locate_template() . '/' . wp_json_encode( $this->args ) );
+		return 'part_' . md5( $this->locate_template() . '/' . wp_json_encode( [ $this->vars, $this->args ] ) );
 	}
 
 }
