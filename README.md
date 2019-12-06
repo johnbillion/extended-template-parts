@@ -65,7 +65,7 @@ get_extended_template_part( 'foo', 'bar', [
 	'my_variable' => 'Hello, world!',
 ], [
 	'dir'   => 'my-directory',
-	'cache' => 3600,
+	'cache' => 1 * HOUR_IN_SECONDS,
 ] );
 ```
 

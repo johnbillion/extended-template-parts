@@ -6,7 +6,7 @@
  * @version   2.0.0
  * @author    John Blackbourn <https://johnblackbourn.com>
  * @link      https://github.com/johnbillion/extended-template-parts
- * @copyright 2012-2018 John Blackbourn
+ * @copyright 2012-2019 John Blackbourn
  * @license   GPL v2 or later
  *
  * This program is free software; you can redistribute it and/or modify
