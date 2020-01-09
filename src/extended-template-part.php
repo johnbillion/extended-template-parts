@@ -112,6 +112,23 @@ class Extended_Template_Part {
 	}
 
 	/**
+	 * Returns a list of possible template files for the requested template parts.
+	 *
+	 * @return string[] Array of theme-relative paths to potential template part files.
+	 */
+	public function get_templates() : array {
+		$templates = [];
+
+		if ( ! empty( $this->name ) ) {
+			$templates[] = "{$this->args['dir']}/{$this->slug}-{$this->name}.php";
+		}
+
+		$templates[] = "{$this->args['dir']}/{$this->slug}.php";
+
+		return $templates;
+	}
+
+	/**
 	 * Locate the template part file according to the slug and name.
 	 *
 	 * @return string The template part file name. Empty string if none is found.
@@ -122,15 +139,7 @@ class Extended_Template_Part {
 			return $this->template;
 		}
 
-		$templates = [];
-
-		if ( ! empty( $this->name ) ) {
-			$templates[] = "{$this->args['dir']}/{$this->slug}-{$this->name}.php";
-		}
-
-		$templates[] = "{$this->args['dir']}/{$this->slug}.php";
-
-		$this->template = locate_template( $templates );
+		$this->template = locate_template( $this->get_templates() );
 
 		if ( 0 !== validate_file( $this->template ) ) {
 			$this->template = '';
