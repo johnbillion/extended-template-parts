@@ -5,7 +5,7 @@
 
 # Extended Template Parts
 
-Extended Template Parts is a library which provides extended functionality to WordPress template parts, including template variables and caching.
+Extended Template Parts is a library which provides extended functionality to WordPress template parts, including template variables and fragment caching.
 
 ## Features ##
 
