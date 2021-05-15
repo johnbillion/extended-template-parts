@@ -12,13 +12,13 @@
 	<!-- Include the Neutron standard. -->
 	<rule ref="NeutronStandard">
 		<exclude name="NeutronStandard.Globals.DisallowGlobalFunctions.GlobalFunctions"/>
+		<exclude name="NeutronStandard.AssignAlign.DisallowAssignAlign.Aligned"/>
 	</rule>
 
 	<!-- Include the WordPress-Extra standard. -->
 	<rule ref="WordPress-Extra">
 		<exclude name="PEAR.Functions.FunctionCallSignature"/>
 		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
-		<exclude name="NeutronStandard.AssignAlign.DisallowAssignAlign.Aligned"/>
 	</rule>
 
 	<!-- Let's also check that everything is properly documented. -->
