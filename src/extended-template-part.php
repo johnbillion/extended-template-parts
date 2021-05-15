@@ -39,7 +39,7 @@ class Extended_Template_Part {
 	/**
 	 * Template.
 	 *
-	 * @var null
+	 * @var string|null
 	 */
 	protected $template = null;
 
