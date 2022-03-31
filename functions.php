@@ -24,8 +24,10 @@ declare( strict_types=1 );
  *                            for no caching. Default false.
  *     @type string    $dir   The theme subdirectory to look in for template parts. Default 'template-parts'.
  * }
+ * @phpstan-param array<string, mixed> $vars
+ * @phpstan-param array{cache?: int|false, dir?: string} $args
  */
-function get_extended_template_part( string $slug, string $name = '', array $vars = [], array $args = [] ) {
+function get_extended_template_part( string $slug, string $name = '', array $vars = [], array $args = [] ) : void {
 	$template = new Extended_Template_Part( $slug, $name, $vars, $args );
 	$dir      = $template->args['dir'];
 	$dir_slug = "{$dir}/{$slug}";

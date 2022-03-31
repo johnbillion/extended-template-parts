@@ -28,18 +28,20 @@ class Extended_Template_Part {
 	 * Arguments.
 	 *
 	 * @var array
+	 * @phpstan-var array{cache: int|false, dir: string}
 	 */
-	public $args = [];
+	public $args;
 	/**
 	 * Vars.
 	 *
 	 * @var array
+	 * @phpstan-var array<string, mixed>
 	 */
 	public $vars = [];
 	/**
 	 * Template.
 	 *
-	 * @var null
+	 * @var string|null
 	 */
 	protected $template = null;
 
@@ -52,9 +54,12 @@ class Extended_Template_Part {
 	 * @param string $name The name of the specialised template.
 	 * @param array  $vars Variables for use within the template part.
 	 * @param array  $args Arguments for the template part.
+	 * @phpstan-param array<string, mixed> $vars
+	 * @phpstan-param array{cache?: int|false, dir?: string} $args
 	 */
 	public function __construct( string $slug, string $name = '', array $vars = [], array $args = [] ) {
 
+		/** @var array{cache: int|false, dir: string} */
 		$args = wp_parse_args( $args, [
 			'cache' => false,
 			'dir'   => 'template-parts',
@@ -83,11 +88,10 @@ class Extended_Template_Part {
 		if ( $this->has_template() ) {
 			$this->load_template( $this->locate_template() );
 		}
+		/** @var string $output */
 		$output = ob_get_clean();
 
-		if ( false !== $this->args['cache'] ) {
-			$this->set_cache( $output );
-		}
+		$this->set_cache( $output );
 
 		return $output;
 
@@ -106,8 +110,9 @@ class Extended_Template_Part {
 	 * Set the variables available to this template part.
 	 *
 	 * @param array $vars Template variables.
+	 * @phpstan-param array<string, mixed> $vars
 	 */
-	public function set_vars( array $vars ) {
+	public function set_vars( array $vars ) : void {
 		$this->vars = array_merge( $this->vars, $vars );
 	}
 
@@ -153,11 +158,12 @@ class Extended_Template_Part {
 	 *
 	 * @param string $template_file The template part file path.
 	 */
-	protected function load_template( string $template_file ) {
+	protected function load_template( string $template_file ) : void {
 		global $posts, $post, $wp_did_header, $wp_query, $wp_rewrite, $wpdb, $wp_version, $wp, $id, $comment, $user_ID;
 		if ( 0 !== validate_file( $template_file ) ) {
 			return;
 		}
+
 		require $template_file;
 	}
 
@@ -177,6 +183,10 @@ class Extended_Template_Part {
 	 * @return bool Whether the transient data was successfully stored.
 	 */
 	protected function set_cache( string $output ) : bool {
+		if ( false !== $this->args['cache'] ) {
+			return false;
+		}
+
 		return set_transient( $this->cache_key(), $output, $this->args['cache'] );
 	}
 
