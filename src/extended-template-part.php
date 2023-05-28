@@ -183,7 +183,7 @@ class Extended_Template_Part {
 	 * @return bool Whether the transient data was successfully stored.
 	 */
 	protected function set_cache( string $output ) : bool {
-		if ( false !== $this->args['cache'] ) {
+		if ( false === $this->args['cache'] ) {
 			return false;
 		}
 
