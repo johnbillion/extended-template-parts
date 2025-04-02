@@ -167,7 +167,8 @@ class Extended_Template_Part {
 	 * @return string|false The cached output, or boolean false if there is no cached version.
 	 */
 	protected function get_cache() {
-		return get_transient( $this->cache_key() );
+		$cache_enabled = apply_filters( 'extended_template_part_cache_enabled', true, $this->slug, $this->name, $this->args );
+		return $cache_enabled ? get_transient( $this->cache_key() ) : false;
 	}
 
 	/**
