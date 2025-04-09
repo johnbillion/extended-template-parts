@@ -3,10 +3,10 @@
  * Extended template parts for WordPress.
  *
  * @package   ExtendedTemplateParts
- * @version   2.2.1
+ * @version   2.2.2
  * @author    John Blackbourn <https://johnblackbourn.com>
  * @link      https://github.com/johnbillion/extended-template-parts
- * @copyright 2012-2023 John Blackbourn
+ * @copyright 2012-2025 John Blackbourn
  * @license   GPL v2 or later
  *
  * This program is free software; you can redistribute it and/or modify
